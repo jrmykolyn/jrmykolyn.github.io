@@ -74,13 +74,13 @@ I see that you're checking for `null` here, but not for other falsy values. Is t
 This snippet looks like it would be useful elsewhere. How about extracting it out into a generic utility?
 ```
 
-#### TODO:
+#### REQUIRED:
 - Intention: reviewer shares a change that must be made prior to approval. Blocking.
 - Expectation: author makes the required change, then re-request review.
 - Example:
 
 ```
-[TODO]:
+[REQUIRED]:
 This code produces a race condition. Update it to _ensure_ that the request has resolved before attempting to display the UI.
 ```
 
@@ -104,9 +104,9 @@ I see that you removed a ton of duplicate test code by making the mocks configur
 This method name is inconsistent with the rest of the class. I know we don't enforce this convention, but I'd like us to be consistent with what's already in place.
 ```
 
-The keywords above — NOTE, QUESTION, SUGGESTION, TODO, KUDOS, and PICKY — _should_ cover any type of feedback that a reviewer may provide as part of a pull request. Using them gives the author additional information about the review's intention (eg. what they're trying to get across) and their expectations (eg. what they want the author to _do_ with the feedback).
+The keywords above — NOTE, QUESTION, SUGGESTION, REQUIRED, KUDOS, and PICKY — _should_ cover any type of feedback that a reviewer may provide as part of a pull request. Using them gives the author additional information about the review's intention (eg. what they're trying to get across) and their expectations (eg. what they want the author to _do_ with the feedback).
 
-Also note that only one keyword signals _blocking_ feedback: TODO. All of the other keywords are non-blocking, no matter how many times they appear in a review.
+Also note that only one keyword signals _blocking_ feedback: REQUIRED. All of the other keywords are non-blocking, no matter how many times they appear in a review.
 
 ## Conclusion
 
@@ -127,6 +127,14 @@ Give it a shot.
 | NOTE | Reviewer has additional context or information to share. | Author absorbs additional information, decides whether action is required. | No |
 | QUESTION | Reviewer is communicating certainty/confusion/missing context. | Author provides clarification; code change not necessarily required. | No |
 | SUGGESTION | Reviewer shares alternative approach, improvement, or other optional change. | Author considers the suggestion, decides whether not to implement it. | No |
-| TODO | Reviewer shares a change that must be made prior to approval. | Author makes the required change, then re-request review. | Yes |
+| REQUIRED | Reviewer shares a change that must be made prior to approval. | Author makes the required change, then re-request review. | Yes |
 | KUDOS | Reviewer draws attention to part of the solution that is clever, helpful, or otherwise deserving of praise. | Author feels nice. | No |
 | PICKY | Reviewer is expressing a personal preference or proposing a trivial/non-critical change. | Author decides whether any action is necessary/appropriate; may deprioritize picky comments. | No |
+
+## CHANGELOG
+
+### 2024/10/31 (👻)
+
+- Changed 'TODO' (the original _blocking_ keyword)  to 'REQUIRED'.
+- This change sidesteps any confusion that might arise from the fact that 'TODO' is widely used _in-code_ as a way to defer work (ie. kick it down the road).
+- Thanks to [Kevin Lin](https://github.com/kevinlinpt) for feedback.
