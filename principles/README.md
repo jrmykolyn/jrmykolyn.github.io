@@ -26,3 +26,18 @@ In practice, it means a few things:
 - That continuity of ownership is extremely valuable (especially when the owners are also the original implementers).
  - That we must be extra (extra, extra, extra) diligent in accurately capturing important decisions, requirements, and other relevant context surrounding the code. This includes product and technical requirements documents, but also 'ad hoc' decisions, definitions of the key concepts, and the 'philosophy' that shaped the implementation in the first place.
 - That defects are much more likely to occur when the thread of ownership is severed _and_ this supporting context is missing.
+
+### The code is incidental
+
+This is something that I trot out quite a bit, but I've never bothered to write down. Until now.
+
+To put it simply, we don't write code _just_ for the sake of writing code\*. We write code to _solve problems_, and by extension to _provide value_. On the one hand this probably seems obvious. On the other hand it seems to get forgotten quite often.
+
+This has a few important implications:
+- First, that we should look for — and apply — 'no code' solutions when and where we can.
+- Second, that we must accept that our code will evolve and change over time (ie. to accommodate new requirements and deliver new value). To this end we need to remain egoless about the code that we write.
+- Third, that there may come a time when 'writing code' (or perhaps 'writing code by hand') is no longer a practical or efficient way to solve problems. The emergence of 'assistive' technologies like Github's Copilot and AI-enabled editors like Cursor are strong signals to this effect.
+
+To be clear: this is not an excuse to write _bad_ code or to let code 'rot' and fall into disrepair. The code that we write must still be fit to purpose, correct, well tested, easy to reason about, easy to maintain, and so on. The point is that centre the idea that the code solves a problem, and that it provides value. And if it doesn't, well then _that's_ a problem.
+
+\* Ok, we may do this periodically, but generally not in an 'I write code for a living'-type scenario.
